@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+    php:
+        build: ./php-fpm
+        networks:
+            - volt
+        ports:
+            - "9000:9000"
+        volumes:
+            - ./:/var/www
+    nginx:
+        build: ./nginx
+        ports:
+            - "80:80"
+        depends_on:
+            - php
+        volumes:
+            - .:/var/www
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./nginx/upstream.conf:/etc/nginx/conf.d/upstream.conf
+            - ./nginx/volt.conf:/etc/nginx/sites-available/volt.conf
+        networks:
+            - volt
+networks:
+    volt:
+        driver: bridge
+        ipam:
+            driver: default

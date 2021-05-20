@@ -1,0 +1,8 @@
+controllers:
+    resource: ../../src/Ui/Http
+    type: annotation
+    prefix: /api
+
+kernel:
+    resource: ../../src/Kernel.php
+    type: annotation
