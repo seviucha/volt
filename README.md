@@ -4,7 +4,7 @@
 Install docker and docker-compose.
 
 ### Clone repository
-* `git clone TBD`
+* `git clone git@github.com:seviucha/volt.git`
 
 ### Prepare .env and docker-compose.yaml
 * set in .env file `GITHUB_AUTH_METHOD=access_token_header` and `GITHUB_USERNAME=github personal access tokens`
